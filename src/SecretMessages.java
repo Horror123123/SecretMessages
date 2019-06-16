@@ -10,10 +10,20 @@ public class SecretMessages {
 		}
 		String playAgain = ""; //$NON-NLS-1$
 		String output = ""; //$NON-NLS-1$
-		System.out.println("Введите ключ (от –25 до 25):"); //$NON-NLS-1$
 
-		int tRier = 0;
-		int keyVal = Integer.parseInt(scan.nextLine());
+		int keyVal = 0;
+		while (keyVal == 0) {
+			System.out.println("Введите ключ (от –25 до 25):"); //$NON-NLS-1$
+
+			try {
+				keyVal = Integer.parseInt(scan.nextLine());
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+
+		}
+
+		int tRier = 0;		
 		char key = (char) keyVal;
 		char key1 = (char) keyVal;
 		do {
@@ -84,7 +94,7 @@ public class SecretMessages {
 			}
 			System.out.println(output);
 			message = output;
-			
+
 			output = ""; //$NON-NLS-1$
 			if (tRier < 1) {
 				System.out.println("Расшифровать? д/н или y/n"); //$NON-NLS-1$			
@@ -97,7 +107,7 @@ public class SecretMessages {
 			} else {
 				playAgain = ""; //$NON-NLS-1$
 			}
-			
+
 
 		} while ((playAgain.equalsIgnoreCase("y"))|(playAgain.equalsIgnoreCase("д"))); //$NON-NLS-1$ //$NON-NLS-2$
 
